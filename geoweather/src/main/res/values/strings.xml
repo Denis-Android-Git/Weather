@@ -1,0 +1,4 @@
+<resources>
+    <string name="geo">Для получения данных о погоде необходим доступ к геолокации</string>
+
+</resources>

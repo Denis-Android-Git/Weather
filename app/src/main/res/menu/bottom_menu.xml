@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@id/geo_navigation"
+        android:icon="@drawable/baseline_sunny_snowing_24"
+        android:title="Погода" />
+    <item
+        android:id="@id/search_navigation"
+        android:icon="@drawable/baseline_search_24"
+        android:title="Поиск" />
+
+    <item
+        android:id="@id/cities_navigation"
+        android:icon="@drawable/baseline_location_city_24"
+        android:title="Города" />
+
+</menu>
