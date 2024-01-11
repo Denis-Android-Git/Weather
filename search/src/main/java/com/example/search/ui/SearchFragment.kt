@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.fragment.findNavController
 import com.example.search.adapter.Adapter
+import com.example.search.data.States
 import com.example.search.databinding.FragmentSearchBinding
 import com.example.search.domain.models.City
 import com.example.search.viewModel.SearchViewModel
@@ -42,8 +43,20 @@ class SearchFragment : Fragment() {
         }
         binding.recycler.adapter = adapter
 
-        viewModel.cityList.observe(viewLifecycleOwner) {
-            adapter.submitList(it)
+        viewModel.states.observe(viewLifecycleOwner) { state ->
+            when (state) {
+                States.Error -> {
+                    binding.error.visibility = View.VISIBLE
+                    binding.coordinator.visibility = View.GONE
+                }
+
+                is States.Success -> {
+                    binding.error.visibility = View.GONE
+                    binding.coordinator.visibility = View.VISIBLE
+                    adapter.submitList(state.cityList)
+
+                }
+            }
         }
 
         binding.searchView.editText.addTextChangedListener(

@@ -11,7 +11,9 @@ sealed interface PermissionEvent {
     data object Granted : PermissionEvent
     data object Revoked : PermissionEvent
 }
+
 sealed class States {
     data object Success : States()
     data object Loading : States()
+    data object Error : States()
 }

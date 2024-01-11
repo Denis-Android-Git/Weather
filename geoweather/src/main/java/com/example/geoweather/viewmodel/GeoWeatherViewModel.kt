@@ -32,9 +32,13 @@ class GeoWeatherVM(
     fun getWeather(lat: String, long: String) {
         _state.value = States.Loading
         viewModelScope.launch {
-            val correctId = "$lat,$long"
-            _weather.value = getGeoWeatherUseCase.execute(correctId)
-            _state.value = States.Success
+            try {
+                val location = "$lat,$long"
+                _weather.value = getGeoWeatherUseCase.execute(location)
+                _state.value = States.Success
+            } catch (e: Exception) {
+                _state.value = States.Error
+            }
         }
     }
 

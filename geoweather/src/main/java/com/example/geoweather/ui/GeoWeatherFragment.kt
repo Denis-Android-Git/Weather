@@ -88,6 +88,11 @@ class GeoWeatherFragment : Fragment() {
             when (it) {
                 States.Loading -> binding.progress.visibility = View.VISIBLE
                 States.Success -> binding.progress.visibility = View.GONE
+                States.Error -> {
+                    binding.progress.visibility = View.GONE
+                    binding.permissions.visibility = View.VISIBLE
+                    binding.permissions.text = "No Internet"
+                }
             }
         }
     }
