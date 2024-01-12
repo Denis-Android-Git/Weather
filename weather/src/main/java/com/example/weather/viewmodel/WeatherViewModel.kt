@@ -18,13 +18,6 @@ class WeatherViewModel(
     private val _state = MutableLiveData<States>(States.Loading)
     val state: LiveData<States> = _state
 
-//    val weatherList = dbUseCase.executeList()
-//        .stateIn(
-//            viewModelScope,
-//            SharingStarted.WhileSubscribed(5000),
-//            emptyList()
-//        )
-
     fun upsertWeather(
         id: Int,
         city: String,

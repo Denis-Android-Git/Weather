@@ -65,16 +65,21 @@ class WeatherFragment : Fragment() {
                 }
 
                 is States.SuccessDb -> {
-                    binding.date.text = "Data saved on: ${state.weather.date}"
-                    binding.progress.visibility = View.GONE
-                    binding.city.text = state.weather.city
-                    binding.country.text = state.weather.country
-                    binding.temp.text = state.weather.temperature
-                    binding.feelsLike.text =
-                        "Feels like ${state.weather.feelsLike}"
-                    binding.wind.text = "Wind ${state.weather.wind} km/h"
-                    binding.condition.text = state.weather.condition
-                    binding.image.load(state.weather.image)
+                    if (state.weather == null) {
+                        binding.date.text = "No saved data"
+                        binding.progress.visibility = View.GONE
+                    } else {
+                        binding.date.text = "Data saved on: ${state.weather.date}"
+                        binding.progress.visibility = View.GONE
+                        binding.city.text = state.weather.city
+                        binding.country.text = state.weather.country
+                        binding.temp.text = state.weather.temperature
+                        binding.feelsLike.text =
+                            "Feels like ${state.weather.feelsLike}"
+                        binding.wind.text = "Wind ${state.weather.wind} km/h"
+                        binding.condition.text = state.weather.condition
+                        binding.image.load(state.weather.image)
+                    }
                 }
             }
         }

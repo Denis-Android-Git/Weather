@@ -14,7 +14,7 @@ class DbUseCase(
         return dbRepo.getWeatherList()
     }
 
-    suspend fun executeSearch(id: Int): WeatherFromDb {
+    suspend fun executeSearch(id: Int): WeatherFromDb? {
         return dbRepo.searchWeatherInDb(id)
     }
 }
