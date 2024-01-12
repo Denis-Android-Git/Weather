@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -45,6 +46,7 @@ dependencies {
     implementation(project(":weather"))
     implementation(project(":geoweather"))
     implementation(project(":Api"))
+    implementation(project(":database"))
 
 
     implementation(libs.androidx.core.ktx)
@@ -64,8 +66,9 @@ dependencies {
     //Koin
     implementation (libs.koin.android)
     implementation (libs.koin.core)
-    //GPS
-    implementation (libs.play.services.location)
-    implementation(libs.play.services.maps)
+    //Room
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
 
 }

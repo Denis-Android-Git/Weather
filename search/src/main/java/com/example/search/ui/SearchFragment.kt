@@ -10,6 +10,8 @@ import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.fragment.findNavController
+import com.example.database.domain.models.WeatherFromDb
+import com.example.database.entity.WeatherEntity
 import com.example.search.adapter.Adapter
 import com.example.search.data.States
 import com.example.search.databinding.FragmentSearchBinding
@@ -37,9 +39,7 @@ class SearchFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val adapter by lazy {
-            Adapter {
-                onItemClick(it)
-            }
+            Adapter(::onItemClick, ::onItemClick2)
         }
         binding.recycler.adapter = adapter
 
@@ -53,8 +53,17 @@ class SearchFragment : Fragment() {
                 is States.Success -> {
                     binding.error.visibility = View.GONE
                     binding.coordinator.visibility = View.VISIBLE
-                    adapter.submitList(state.cityList)
+                    val list = mutableListOf<WeatherEntity>()
 
+                    if (!state.cityList.isNullOrEmpty()) {
+                        list.addAll(state.cityList)
+                    }
+
+                    if (!state.weatherList.isNullOrEmpty()) {
+                        list.addAll(state.weatherList)
+                    }
+
+                    adapter.submitList(list)
                 }
             }
         }
@@ -82,6 +91,14 @@ class SearchFragment : Fragment() {
 
     private fun onItemClick(city: City) {
         val id = city.id.toString()
+        val request = NavDeepLinkRequest.Builder
+            .fromUri("android-app://weather_fragment/$id".toUri())
+            .build()
+        findNavController().navigate(request)
+    }
+
+    private fun onItemClick2(weatherFromDb: WeatherFromDb) {
+        val id = weatherFromDb.id.toString()
         val request = NavDeepLinkRequest.Builder
             .fromUri("android-app://weather_fragment/$id".toUri())
             .build()

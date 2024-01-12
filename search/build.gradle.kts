@@ -50,10 +50,6 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    //Room
-    implementation(libs.androidx.room.runtime)
-    implementation(libs.androidx.room.ktx)
-    ksp(libs.androidx.room.compiler)
     //Koin
     implementation(libs.koin.android)
     implementation(libs.koin.core)
@@ -61,5 +57,10 @@ dependencies {
     implementation(libs.androidx.paging.runtime)
 
     implementation(project(":Api"))
+    implementation(project(":database"))
+    //Room
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
 
 }

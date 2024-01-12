@@ -63,6 +63,4 @@ dependencies {
     //GPS
     implementation (libs.play.services.location)
     implementation(libs.play.services.maps)
-    //Accompanist (Permission)
-    implementation (libs.accompanist.permissions)
 }

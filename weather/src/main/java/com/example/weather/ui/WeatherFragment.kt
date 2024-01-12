@@ -35,22 +35,47 @@ class WeatherFragment : Fragment() {
 
         viewModel.getWeather(args.id)
 
-        viewModel.weather.observe(viewLifecycleOwner) {
-            if (it != null) {
-                binding.city.text = it.location.name
-                binding.country.text = it.location.country
-                binding.temp.text = it.current.temp_c.toString()
-                binding.feelsLike.text = "Feels like ${it.current.feelslike_c.toString()}"
-                binding.wind.text = "Wind ${it.current.wind_kph} km/h"
-                binding.condition.text = it.current.condition.text
-                val icon = it.current.condition.icon.replace("//", "https://")
-                binding.image.load(icon)
-            }
-        }
-        viewModel.state.observe(viewLifecycleOwner) {
-            when (it) {
+        viewModel.state.observe(viewLifecycleOwner) { state ->
+            when (state) {
                 States.Loading -> binding.progress.visibility = View.VISIBLE
-                States.Success -> binding.progress.visibility = View.GONE
+
+                is States.Success -> {
+                    binding.progress.visibility = View.GONE
+                    binding.city.text = state.weather.location.name
+                    binding.country.text = state.weather.location.country
+                    binding.temp.text = state.weather.current.temp_c.toString()
+                    binding.feelsLike.text =
+                        "Feels like ${state.weather.current.feelslike_c.toString()}"
+                    binding.wind.text = "Wind ${state.weather.current.wind_kph} km/h"
+                    binding.condition.text = state.weather.current.condition.text
+                    val icon = state.weather.current.condition.icon.replace("//", "https://")
+                    binding.image.load(icon)
+
+                    viewModel.upsertWeather(
+                        id = args.id.toInt(),
+                        city = state.weather.location.name,
+                        country = state.weather.location.country,
+                        date = state.weather.location.localtime,
+                        condition = state.weather.current.condition.text,
+                        feelsLike = state.weather.current.feelslike_c.toString(),
+                        image = state.weather.current.condition.icon.replace("//", "https://"),
+                        temperature = state.weather.current.temp_c.toString(),
+                        wind = state.weather.current.wind_kph.toString()
+                    )
+                }
+
+                is States.SuccessDb -> {
+                    binding.date.text = "Data saved on: ${state.weather.date}"
+                    binding.progress.visibility = View.GONE
+                    binding.city.text = state.weather.city
+                    binding.country.text = state.weather.country
+                    binding.temp.text = state.weather.temperature
+                    binding.feelsLike.text =
+                        "Feels like ${state.weather.feelsLike}"
+                    binding.wind.text = "Wind ${state.weather.wind} km/h"
+                    binding.condition.text = state.weather.condition
+                    binding.image.load(state.weather.image)
+                }
             }
         }
     }
