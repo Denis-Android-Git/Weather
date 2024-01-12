@@ -5,8 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.database.domain.models.WeatherFromDb
+import com.example.database.domain.usecase.DbUseCase
 import com.example.weather.data.States
-import com.example.weather.domain.useCase.DbUseCase
 import com.example.weather.domain.useCase.GetWeatherUseCase
 import kotlinx.coroutines.launch
 

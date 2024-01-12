@@ -1,8 +1,7 @@
-package com.example.weather.data
+package com.example.database.data
 
-import com.example.database.data.WeatherDataBase
+import com.example.database.domain.dbrepo.DbRepo
 import com.example.database.domain.models.WeatherFromDb
-import com.example.weather.domain.repoweather.DbRepo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 

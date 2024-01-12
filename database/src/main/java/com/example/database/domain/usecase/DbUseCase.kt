@@ -1,7 +1,7 @@
-package com.example.weather.domain.useCase
+package com.example.database.domain.usecase
 
+import com.example.database.domain.dbrepo.DbRepo
 import com.example.database.domain.models.WeatherFromDb
-import com.example.weather.domain.repoweather.DbRepo
 
 class DbUseCase(
     private val dbRepo: DbRepo
