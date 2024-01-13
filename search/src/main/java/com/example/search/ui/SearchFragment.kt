@@ -3,6 +3,7 @@ package com.example.search.ui
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -60,7 +61,11 @@ class SearchFragment : Fragment() {
                     }
 
                     if (!state.weatherList.isNullOrEmpty()) {
-                        list.addAll(state.weatherList)
+                        list.addAll(state.weatherList.take(10))
+                        Log.d(
+                            "weatherList",
+                            "weatherList======${state.weatherList.joinToString("\n")}"
+                        )
                     }
 
                     adapter.submitList(list)
