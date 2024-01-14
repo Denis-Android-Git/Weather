@@ -40,6 +40,7 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
+    implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.legacy.support.v4)
     implementation(libs.androidx.lifecycle.livedata.ktx)
     implementation(libs.androidx.fragment.ktx)
@@ -49,6 +50,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
 
     implementation(project(":Api"))
+    implementation(project(":delegates"))
 
     //Koin
     implementation(libs.koin.android)
@@ -56,11 +58,10 @@ dependencies {
 
     //Coil
     implementation(libs.coil)
-
     //Navi
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     //GPS
-    implementation (libs.play.services.location)
+    implementation(libs.play.services.location)
     implementation(libs.play.services.maps)
 }

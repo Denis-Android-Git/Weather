@@ -2,6 +2,7 @@ package com.example.geoweather.ui
 
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import coil.load
+import com.example.geoweather.adapter.Adapter
 import com.example.geoweather.data.PermissionEvent
 import com.example.geoweather.data.States
 import com.example.geoweather.data.ViewState
@@ -53,6 +55,11 @@ class GeoWeatherFragment : Fragment() {
             }
         val permissions = Permissions(requireContext(), launcher, viewModel)
 
+        val adapter by lazy {
+            Adapter()
+        }
+        binding.recycler.adapter = adapter
+
         permissions.checkPermissions()
 
         viewModel.viewState.observe(viewLifecycleOwner) { state ->
@@ -68,12 +75,15 @@ class GeoWeatherFragment : Fragment() {
                         val latitude = state.location.latitude.toString()
                         val longitude = state.location.longitude.toString()
                         viewModel.getWeather(latitude, longitude)
+                        viewModel.getForeCast(latitude, longitude)
                     }
                 }
             }
         }
         viewModel.weather.observe(viewLifecycleOwner) {
             if (it != null) {
+                Log.d("weathervm", "weathervm======$it")
+
                 binding.city.text = it.location.name
                 binding.country.text = it.location.country
                 binding.temp.text = it.current.temp_c.toString()
@@ -83,6 +93,10 @@ class GeoWeatherFragment : Fragment() {
                 val icon = it.current.condition.icon.replace("//", "https://")
                 binding.image.load(icon)
             }
+        }
+        viewModel.foreCast.observe(viewLifecycleOwner) {
+            adapter.submitList(it?.forecast?.forecastday)
+            Log.d("forecast", "forecast======${it?.forecast?.forecastday?.joinToString("\n")}")
         }
         viewModel.state.observe(viewLifecycleOwner) {
             when (it) {

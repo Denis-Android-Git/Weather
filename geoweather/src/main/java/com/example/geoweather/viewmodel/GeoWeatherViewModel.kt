@@ -10,6 +10,7 @@ import com.example.geoweather.data.PermissionEvent
 import com.example.geoweather.data.States
 import com.example.geoweather.data.ViewState
 import com.example.geoweather.domain.models.Weather
+import com.example.geoweather.domain.usecases.GetForeCastUseCase
 import com.example.geoweather.domain.usecases.GetGeoWeatherUseCase
 import com.example.geoweather.domain.usecases.GetLocationUseCase
 import kotlinx.coroutines.launch
@@ -17,7 +18,8 @@ import kotlinx.coroutines.launch
 @RequiresApi(Build.VERSION_CODES.S)
 class GeoWeatherVM(
     private val getLocationUseCase: GetLocationUseCase,
-    private val getGeoWeatherUseCase: GetGeoWeatherUseCase
+    private val getGeoWeatherUseCase: GetGeoWeatherUseCase,
+    private val getForeCastUseCase: GetForeCastUseCase
 ) : ViewModel() {
 
     private val _viewState = MutableLiveData<ViewState>(ViewState.RevokedPermissions)
@@ -29,6 +31,9 @@ class GeoWeatherVM(
     private val _state = MutableLiveData<States>(States.Loading)
     val state: LiveData<States> = _state
 
+    private val _foreCast = MutableLiveData<Weather?>(null)
+    val foreCast: LiveData<Weather?> = _foreCast
+
     fun getWeather(lat: String, long: String) {
         _state.value = States.Loading
         viewModelScope.launch {
@@ -39,6 +44,19 @@ class GeoWeatherVM(
             } catch (e: Exception) {
                 _state.value = States.Error
             }
+        }
+    }
+
+    fun getForeCast(lat: String, long: String) {
+        _state.value = States.Loading
+        viewModelScope.launch {
+            //try {
+            val location = "$lat,$long"
+            _foreCast.value = getForeCastUseCase.execute(location)
+            _state.value = States.Success
+            //} catch (e: Exception) {
+            //_state.value = States.Error
+            //}
         }
     }
 

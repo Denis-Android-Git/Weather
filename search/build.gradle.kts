@@ -52,11 +52,10 @@ dependencies {
     //Koin
     implementation(libs.koin.android)
     implementation(libs.koin.core)
-    //Paging
-    implementation(libs.androidx.paging.runtime)
 
     implementation(project(":Api"))
     implementation(project(":database"))
+    implementation(project(":delegates"))
 
 
 }

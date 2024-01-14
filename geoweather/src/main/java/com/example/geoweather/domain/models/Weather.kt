@@ -2,17 +2,56 @@ package com.example.geoweather.domain.models
 
 import com.example.api.dto.ConditionDto
 import com.example.api.dto.CurrentDto
+import com.example.api.dto.DayDto
+import com.example.api.dto.ForecastDto
+import com.example.api.dto.ForecastdayDto
 import com.example.api.dto.LocationDto
 import com.example.api.dto.WeatherDto
 
 data class Weather(
     val current: Current,
-    val location: Location
+    val location: Location,
+    val forecast: Forecast?
 )
 
 fun WeatherDto.toWeather() = Weather(
     current = current.toCurrent(),
-    location = location.toLocation()
+    location = location.toLocation(),
+    forecast = forecast?.toForecast()
+)
+
+fun ForecastDto.toForecast() = Forecast(
+    forecastday = forecastday.map {
+        it.toForecastDay()
+    }
+)
+
+fun ForecastdayDto.toForecastDay() = Forecastday(
+    date = date,
+    day = day.toDay()
+)
+
+fun DayDto.toDay() = Day(
+    avghumidity = avghumidity,
+    avgtemp_c = avgtemp_c,
+    avgtemp_f = avgtemp_f,
+    avgvis_km = avgvis_km,
+    avgvis_miles = avgvis_miles,
+    condition = condition.toCondition(),
+    daily_chance_of_rain = daily_chance_of_rain,
+    daily_chance_of_snow = daily_chance_of_snow,
+    daily_will_it_rain = daily_will_it_rain,
+    daily_will_it_snow = daily_will_it_snow,
+    maxtemp_c = maxtemp_c,
+    maxtemp_f = maxtemp_f,
+    maxwind_kph = maxwind_kph,
+    maxwind_mph = maxwind_mph,
+    mintemp_c = mintemp_c,
+    mintemp_f = mintemp_f,
+    totalprecip_in = totalprecip_in,
+    totalprecip_mm = totalprecip_mm,
+    totalsnow_cm = totalsnow_cm,
+    uv = uv
 )
 
 fun LocationDto.toLocation() = Location(

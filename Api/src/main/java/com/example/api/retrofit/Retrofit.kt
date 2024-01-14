@@ -39,10 +39,11 @@ class Retrofit {
             @Query("q") q: String
         ): WeatherDto
 
-        @GET("current.json")
-        suspend fun getWeatherByGPS(
+        @GET("forecast.json")
+        suspend fun getForecast(
             @Query("key") key: String = API_KEY,
-            @Query("q") q: String
+            @Query("q") q: String,
+            @Query("days") days: Int = 5,
         ): WeatherDto
 
     }

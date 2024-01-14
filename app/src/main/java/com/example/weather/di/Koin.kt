@@ -11,6 +11,7 @@ import com.example.database.domain.usecase.DbUseCase
 import com.example.geoweather.data.RepoGeoWeatherImpl
 import com.example.geoweather.domain.repo.ILocationService
 import com.example.geoweather.domain.repo.RepoGeoWeather
+import com.example.geoweather.domain.usecases.GetForeCastUseCase
 import com.example.geoweather.domain.usecases.GetGeoWeatherUseCase
 import com.example.geoweather.domain.usecases.GetLocationUseCase
 import com.example.geoweather.locationService.LocationService
@@ -56,9 +57,11 @@ val module = module {
     factory { GetLocationUseCase(get()) }
     factory { GetGeoWeatherUseCase(get()) }
     factory { DbUseCase(get()) }
+    factory { GetForeCastUseCase(get()) }
+
 
     viewModel { SearchViewModel(get(), get()) }
     viewModel { WeatherViewModel(get(), get()) }
-    viewModel { GeoWeatherVM(get(), get()) }
+    viewModel { GeoWeatherVM(get(), get(), get()) }
 
 }

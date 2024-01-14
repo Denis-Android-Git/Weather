@@ -4,4 +4,6 @@ import com.example.geoweather.domain.models.Weather
 
 interface RepoGeoWeather {
     suspend fun getWeather(id: String): Weather
+    suspend fun getForecast(id: String): Weather
+
 }

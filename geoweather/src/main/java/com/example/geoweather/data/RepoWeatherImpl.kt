@@ -12,7 +12,13 @@ class RepoGeoWeatherImpl(
 ) : RepoGeoWeather {
     override suspend fun getWeather(id: String): Weather {
         return withContext(Dispatchers.IO) {
-            api.api.getWeatherByGPS(q = id).toWeather()
+            api.api.getWeather(q = id).toWeather()
+        }
+    }
+
+    override suspend fun getForecast(id: String): Weather {
+        return withContext(Dispatchers.IO) {
+            api.api.getForecast(q = id).toWeather()
         }
     }
 }

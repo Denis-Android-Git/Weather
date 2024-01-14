@@ -25,6 +25,7 @@ legacySupportV4 = "1.0.0"
 fragmentKtx = "1.6.2"
 playServicesLocation = "21.0.1"
 playServicesMaps = "18.2.0"
+jetbrainsKotlinJvm = "1.9.22"
 
 [libraries]
 accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanistPermissions" }
@@ -60,5 +61,6 @@ jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "k
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 safeargs = {id = "androidx.navigation.safeargs.kotlin", version.ref = "navigationFragmentKtx"}
+jetbrainsKotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
 
 
