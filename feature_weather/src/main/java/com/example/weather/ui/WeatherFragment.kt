@@ -35,6 +35,8 @@ class WeatherFragment : Fragment() {
 
         viewModel.getWeather(args.id)
 
+        val timeStamp = System.currentTimeMillis()
+
         viewModel.state.observe(viewLifecycleOwner) { state ->
             when (state) {
                 States.Loading -> binding.progress.visibility = View.VISIBLE
@@ -45,7 +47,7 @@ class WeatherFragment : Fragment() {
                     binding.country.text = state.weather.location.country
                     binding.temp.text = state.weather.current.temp_c.toString()
                     binding.feelsLike.text =
-                        "Feels like ${state.weather.current.feelslike_c.toString()}"
+                        "Feels like ${state.weather.current.feelslike_c}"
                     binding.wind.text = "Wind ${state.weather.current.wind_kph} km/h"
                     binding.condition.text = state.weather.current.condition.text
                     val icon = state.weather.current.condition.icon.replace("//", "https://")
@@ -53,6 +55,7 @@ class WeatherFragment : Fragment() {
 
                     viewModel.upsertWeather(
                         id = args.id.toInt(),
+                        timeStamp = timeStamp,
                         city = state.weather.location.name,
                         country = state.weather.location.country,
                         date = state.weather.location.localtime,

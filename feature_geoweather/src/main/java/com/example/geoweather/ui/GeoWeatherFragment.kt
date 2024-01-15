@@ -82,8 +82,6 @@ class GeoWeatherFragment : Fragment() {
         }
         viewModel.weather.observe(viewLifecycleOwner) {
             if (it != null) {
-                Log.d("weathervm", "weathervm======$it")
-
                 binding.city.text = it.location.name
                 binding.country.text = it.location.country
                 binding.temp.text = it.current.temp_c.toString()

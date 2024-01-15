@@ -4,6 +4,7 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.room.Room
 import com.example.api.retrofit.Retrofit
+import com.example.cities.viewmodel.CitiesViewModel
 import com.example.database.data.DbRepoImpl
 import com.example.database.data.WeatherDataBase
 import com.example.database.domain.dbrepo.DbRepo
@@ -63,5 +64,5 @@ val module = module {
     viewModel { SearchViewModel(get(), get()) }
     viewModel { WeatherViewModel(get(), get()) }
     viewModel { GeoWeatherVM(get(), get(), get()) }
-
+    viewModel { CitiesViewModel(get()) }
 }

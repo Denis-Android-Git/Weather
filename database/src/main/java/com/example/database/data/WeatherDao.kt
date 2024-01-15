@@ -10,7 +10,7 @@ interface WeatherDao {
     @Upsert
     suspend fun upsertWeather(weatherFromDb: WeatherFromDb)
 
-    @Query("select * from WeatherFromDb")
+    @Query("select * from WeatherFromDb ORDER BY timeStamp DESC")
     fun getList(): List<WeatherFromDb>
 
     @Query("select * from WeatherFromDb where id = :id")

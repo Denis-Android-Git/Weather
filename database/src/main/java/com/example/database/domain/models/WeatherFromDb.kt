@@ -10,6 +10,8 @@ data class WeatherFromDb(
     @PrimaryKey
     @ColumnInfo(name = "id")
     override val id: Int,
+    @ColumnInfo(name = "timeStamp")
+    val timeStamp: Long,
     @ColumnInfo(name = "city")
     val city: String,
     @ColumnInfo(name = "country")

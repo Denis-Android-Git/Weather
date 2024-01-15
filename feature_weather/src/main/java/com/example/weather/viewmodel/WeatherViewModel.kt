@@ -20,6 +20,7 @@ class WeatherViewModel(
 
     fun upsertWeather(
         id: Int,
+        timeStamp: Long,
         city: String,
         country: String,
         date: String,
@@ -32,6 +33,7 @@ class WeatherViewModel(
         viewModelScope.launch {
             val weatherFromDb = WeatherFromDb(
                 id = id,
+                timeStamp = timeStamp,
                 city = city,
                 country = country,
                 date = date,
