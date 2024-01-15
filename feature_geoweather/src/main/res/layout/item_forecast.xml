@@ -16,8 +16,7 @@
             android:id="@+id/image"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_gravity="top|right"
-            android:src="@drawable/sunny" />
+            android:layout_gravity="top|right" />
 
         <TextView
             android:id="@+id/date"
