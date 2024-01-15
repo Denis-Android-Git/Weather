@@ -41,10 +41,10 @@ android {
 
 dependencies {
 
-    implementation(project(":search"))
-    implementation(project(":cities"))
-    implementation(project(":weather"))
-    implementation(project(":geoweather"))
+    implementation(project(":feature_search"))
+    implementation(project(":feature_cities"))
+    implementation(project(":feature_weather"))
+    implementation(project(":feature_geoweather"))
     implementation(project(":Api"))
     implementation(project(":database"))
 

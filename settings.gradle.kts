@@ -21,10 +21,10 @@ dependencyResolutionManagement {
 
 rootProject.name = "Weather"
 include(":app")
-include(":search")
-include(":weather")
-include(":cities")
+include(":feature_search")
+include(":feature_weather")
+include(":feature_cities")
 include(":Api")
-include(":geoweather")
+include(":feature_geoweather")
 include(":database")
 include(":delegates")
