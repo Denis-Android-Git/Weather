@@ -17,8 +17,8 @@ import com.example.geoweather.domain.usecases.GetGeoWeatherUseCase
 import com.example.geoweather.domain.usecases.GetLocationUseCase
 import com.example.geoweather.locationService.LocationService
 import com.example.geoweather.viewmodel.GeoWeatherVM
-import com.example.search.data.RepoImpl
-import com.example.search.domain.repo.Repo
+import com.example.search.data.SearchRepoImpl
+import com.example.search.domain.repo.SearchRepo
 import com.example.search.domain.usecases.SearchCityUseCase
 import com.example.search.viewModel.SearchViewModel
 import com.example.weather.data.RepoWeatherImpl
@@ -46,7 +46,7 @@ val module = module {
         ).fallbackToDestructiveMigration().build()
     }
     single<DbRepo> { DbRepoImpl(get()) }
-    single<Repo> { RepoImpl(get()) }
+    single<SearchRepo> { SearchRepoImpl(get()) }
     single<RepoWeather> { RepoWeatherImpl(get()) }
     single<ILocationService> { LocationService(get(), get()) }
     single<RepoGeoWeather> { RepoGeoWeatherImpl(get()) }
