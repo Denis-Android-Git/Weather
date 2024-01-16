@@ -21,9 +21,10 @@ Apk: https://1drv.ms/u/s!AnbuqWCjseexh8l3RJNGct2c_-0jdg?e=mI0LmL
 
 Scrennshots:
 
-![icon](https://github.com/Lobiofrom/Weather/assets/124072945/ea3f1dd3-5790-49fc-850e-fcb89b6c7297)
-![icon-2](https://github.com/Lobiofrom/Weather/assets/124072945/8e029300-2bca-4541-9201-07a5329a5868)
-![icon-3](https://github.com/Lobiofrom/Weather/assets/124072945/9103fb29-3bae-4440-86f7-f1417feb83f1)
+![icon-2](https://github.com/Lobiofrom/Weather/assets/124072945/ef7fd44f-5b2f-4875-8649-b6245833ba26)
+![icon-3](https://github.com/Lobiofrom/Weather/assets/124072945/23bb61c4-1cb5-41c1-a2f2-14880f4fb47f)
+![icon](https://github.com/Lobiofrom/Weather/assets/124072945/f6bd787c-5aa2-461a-98c8-9d66dbb97d7e)
+
 
 Video:
 
