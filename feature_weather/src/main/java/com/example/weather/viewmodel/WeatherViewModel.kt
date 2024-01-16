@@ -1,5 +1,6 @@
 package com.example.weather.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -48,6 +49,7 @@ class WeatherViewModel(
     }
 
     fun getWeather(id: String) {
+        Log.d("getWeather", "getWeather====")
         _state.value = States.Loading
         viewModelScope.launch {
             try {
