@@ -17,7 +17,8 @@ Tech stack:
 - Adapter Delegate,
 - etc.
 
-Video: https://1drv.ms/v/s!AnbuqWCjseexh8oKAkD5_kx26prOFQ?e=eXCwMJ
+Video: 
+https://github.com/Lobiofrom/Weather/assets/124072945/1d44bb3f-fa4d-4e9b-8a4e-6097edb96874
 
 Apk: https://1drv.ms/u/s!AnbuqWCjseexh8l3RJNGct2c_-0jdg?e=mI0LmL
 
