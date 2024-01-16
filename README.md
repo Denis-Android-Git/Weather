@@ -17,7 +17,7 @@ Tech stack:
 - Adapter Delegate,
 - etc.
 
-Video: https://1drv.ms/u/s!AnbuqWCjseexh8oJ9_syj0aZTi23cw?e=abd8aO
+Video: https://1drv.ms/v/s!AnbuqWCjseexh8oKAkD5_kx26prOFQ?e=eXCwMJ
 
 Scrennshots:
 ![1](https://github.com/Lobiofrom/Weather/assets/124072945/748fa23b-0474-438a-aa2e-244de49d9927)
