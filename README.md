@@ -17,11 +17,16 @@ Tech stack:
 - Adapter Delegate,
 - etc.
 
-Video: https://1drv.ms/v/s!AnbuqWCjseexh8oKAkD5_kx26prOFQ?e=eXCwMJ
-
 Apk: https://1drv.ms/u/s!AnbuqWCjseexh8l3RJNGct2c_-0jdg?e=mI0LmL
 
 Scrennshots:
-![1](https://github.com/Lobiofrom/Weather/assets/124072945/748fa23b-0474-438a-aa2e-244de49d9927)
-![2](https://github.com/Lobiofrom/Weather/assets/124072945/dcd79088-78ea-480f-9f2b-a28a5a596873)
-![3](https://github.com/Lobiofrom/Weather/assets/124072945/d770b4c0-7b5c-4b67-aea7-b7a2488f873b)
+
+![icon-2](https://github.com/Lobiofrom/Weather/assets/124072945/ef7fd44f-5b2f-4875-8649-b6245833ba26)
+![icon-3](https://github.com/Lobiofrom/Weather/assets/124072945/23bb61c4-1cb5-41c1-a2f2-14880f4fb47f)
+![icon](https://github.com/Lobiofrom/Weather/assets/124072945/f6bd787c-5aa2-461a-98c8-9d66dbb97d7e)
+
+
+Video:
+
+https://github.com/Lobiofrom/Weather/assets/124072945/638effb5-4733-4f0c-a08c-4a4dfa041363
+
