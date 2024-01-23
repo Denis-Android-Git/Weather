@@ -2,7 +2,6 @@ package com.example.geoweather.ui
 
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -85,8 +84,8 @@ class GeoWeatherFragment : Fragment() {
                 binding.city.text = it.location.name
                 binding.country.text = it.location.country
                 binding.temp.text = it.current.temp_c.toString()
-                binding.feelsLike.text = "Feels like ${it.current.feelslike_c}"
-                binding.wind.text = "Wind ${it.current.wind_kph} km/h"
+                binding.feelsLike.text = it.current.feelslike_c.toString()//"Feels like ${it.current.feelslike_c.toString()}"
+                binding.wind.text = it.current.wind_kph.toString() //"Wind ${it.current.wind_kph.toString()} km/h"
                 binding.condition.text = it.current.condition.text
                 val icon = it.current.condition.icon.replace("//", "https://")
                 binding.image.load(icon)
@@ -102,7 +101,7 @@ class GeoWeatherFragment : Fragment() {
                 States.Error -> {
                     binding.progress.visibility = View.GONE
                     binding.permissions.visibility = View.VISIBLE
-                    binding.permissions.text = "No Internet"
+                    //binding.permissions.text = "No Internet"
                 }
             }
         }

@@ -5,6 +5,60 @@
       <entry key="app">
         <State />
       </entry>
+      <entry key="checkTextIsDisplayed()">
+        <State>
+          <targetSelectedWithDropDown>
+            <Target>
+              <type value="QUICK_BOOT_TARGET" />
+              <deviceKey>
+                <Key>
+                  <type value="VIRTUAL_DEVICE_PATH" />
+                  <value value="$USER_HOME$/.android/avd/Pixel_4_API_33.avd" />
+                </Key>
+              </deviceKey>
+            </Target>
+          </targetSelectedWithDropDown>
+          <timeTargetWasSelectedWithDropDown value="2024-01-22T10:05:20.155287Z" />
+        </State>
+      </entry>
+      <entry key="checkWeatherInfoDisplayed()">
+        <State>
+          <runningDeviceTargetSelectedWithDropDown>
+            <Target>
+              <type value="RUNNING_DEVICE_TARGET" />
+              <deviceKey>
+                <Key>
+                  <type value="VIRTUAL_DEVICE_PATH" />
+                  <value value="$USER_HOME$/.android/avd/Pixel_4_API_33.avd" />
+                </Key>
+              </deviceKey>
+            </Target>
+          </runningDeviceTargetSelectedWithDropDown>
+          <timeTargetWasSelectedWithDropDown value="2024-01-22T19:35:47.386804Z" />
+        </State>
+      </entry>
+      <entry key="checkWeatherInfoDisplayed() (1)">
+        <State />
+      </entry>
+      <entry key="checkWeatherInfoDisplayed() (2)">
+        <State />
+      </entry>
+      <entry key="useAppContext()">
+        <State>
+          <runningDeviceTargetSelectedWithDropDown>
+            <Target>
+              <type value="RUNNING_DEVICE_TARGET" />
+              <deviceKey>
+                <Key>
+                  <type value="VIRTUAL_DEVICE_PATH" />
+                  <value value="$USER_HOME$/.android/avd/Pixel_4_API_33.avd" />
+                </Key>
+              </deviceKey>
+            </Target>
+          </runningDeviceTargetSelectedWithDropDown>
+          <timeTargetWasSelectedWithDropDown value="2024-01-22T10:32:54.777125Z" />
+        </State>
+      </entry>
     </value>
   </component>
 </project>

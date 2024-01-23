@@ -28,7 +28,7 @@ class SearchViewModelTest {
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @Before
-    fun stUp() = runTest {
+    fun setUp() = runTest {
         Dispatchers.setMain(Dispatchers.Unconfined)
         repo = FakeSearchRepoImpl()
         fakeWeatherDataBase = FakeWeatherDataBase()
@@ -72,6 +72,16 @@ class SearchViewModelTest {
                         state.weatherList
                     )
                 )
+            }
+        }
+    }
+
+    @Test
+    fun `Lists are not empty`() {
+        when (val state = viewModel.states.getOrAwaitValueTest()) {
+            States.Error -> {}
+            is States.Success -> {
+                assertThat(state.cityList?.isNotEmpty() == true && state.weatherList?.isNotEmpty() == true).isTrue()
             }
         }
     }

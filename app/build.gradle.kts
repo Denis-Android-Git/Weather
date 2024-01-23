@@ -76,8 +76,8 @@ dependencies {
     testImplementation(libs.androidx.core.testing)
     testImplementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.truth)
-    testImplementation(libs.mockwebserver)
-    testImplementation(libs.mockk)
+    //testImplementation(libs.mockwebserver)
+    //testImplementation(libs.mockk)
 
     // Instrumentation tests
     androidTestImplementation(libs.junit)
@@ -86,7 +86,9 @@ dependencies {
     androidTestImplementation(libs.truth.v113)
     androidTestImplementation(libs.androidx.junit.v113)
     androidTestImplementation(libs.core.ktx)
-    androidTestImplementation(libs.mockwebserver)
-    androidTestImplementation(libs.mockk.android)
+    //androidTestImplementation(libs.mockwebserver)
+    //androidTestImplementation(libs.mockk.android)
     androidTestImplementation(libs.androidx.runner)
+    androidTestImplementation(libs.androidx.core.v140)
+    debugImplementation(libs.androidx.fragment.testing)
 }

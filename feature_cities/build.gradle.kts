@@ -1,9 +1,14 @@
+
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
 }
 
 android {
+
+    packaging {
+        resources.excludes.add("META-INF/*")
+    }
     namespace = "com.example.cities"
     compileSdk = 34
 
@@ -55,4 +60,9 @@ dependencies {
     //Koin
     implementation(libs.koin.android)
     implementation(libs.koin.core)
+    androidTestImplementation(project(":app"))
+
+    debugImplementation(libs.androidx.fragment.testing)
+    androidTestImplementation(libs.mockk.android)
+
 }

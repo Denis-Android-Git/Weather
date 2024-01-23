@@ -16,6 +16,90 @@
             </AndroidTestResultsTableState>
           </value>
         </entry>
+        <entry key="-1259486885">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="Duration" value="90" />
+                  <entry key="Pixel_4_API_33" value="120" />
+                  <entry key="Tests" value="360" />
+                  <entry key="Xiaomi 23021RAA2Y" value="120" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
+        <entry key="-249380283">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="Duration" value="90" />
+                  <entry key="Pixel_4_API_33" value="120" />
+                  <entry key="Tests" value="360" />
+                  <entry key="Xiaomi 23021RAA2Y" value="120" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
+        <entry key="1376556736">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="Duration" value="90" />
+                  <entry key="Pixel_4_API_33" value="120" />
+                  <entry key="Tests" value="360" />
+                  <entry key="Xiaomi 23021RAA2Y" value="120" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
+        <entry key="1494529990">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="Duration" value="90" />
+                  <entry key="Pixel_4_API_33" value="120" />
+                  <entry key="Tests" value="360" />
+                  <entry key="Xiaomi 23021RAA2Y" value="120" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
+        <entry key="1505059436">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="Duration" value="90" />
+                  <entry key="Pixel_4_API_33" value="120" />
+                  <entry key="Tests" value="360" />
+                  <entry key="Xiaomi 23021RAA2Y" value="120" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
+        <entry key="1749973888">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="Duration" value="90" />
+                  <entry key="Pixel_4_API_33" value="120" />
+                  <entry key="Tests" value="360" />
+                  <entry key="Xiaomi 23021RAA2Y" value="120" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
       </map>
     </option>
   </component>

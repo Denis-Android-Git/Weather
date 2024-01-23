@@ -51,6 +51,7 @@ dependencies {
 
     implementation(project(":Api"))
     implementation(project(":delegates"))
+    androidTestImplementation(project(":app"))
 
     //Koin
     implementation(libs.koin.android)
@@ -64,4 +65,7 @@ dependencies {
     //GPS
     implementation(libs.play.services.location)
     implementation(libs.play.services.maps)
+
+    debugImplementation(libs.androidx.fragment.testing)
+
 }
