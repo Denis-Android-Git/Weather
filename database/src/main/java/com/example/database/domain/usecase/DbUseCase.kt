@@ -17,4 +17,7 @@ class DbUseCase(
     suspend fun executeSearch(id: Int): WeatherFromDb? {
         return dbRepo.searchWeatherInDb(id)
     }
+    suspend fun executeDelete(timeStampOfThirtyDays: Long) {
+        dbRepo.deleteOldData(timeStampOfThirtyDays)
+    }
 }

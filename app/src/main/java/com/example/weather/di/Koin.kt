@@ -2,7 +2,6 @@ package com.example.weather.di
 
 import android.os.Build
 import androidx.annotation.RequiresApi
-import androidx.room.Room
 import com.example.api.retrofit.Retrofit
 import com.example.cities.viewmodel.CitiesViewModel
 import com.example.database.data.DbRepoImpl
@@ -27,23 +26,22 @@ import com.example.weather.domain.useCase.GetWeatherUseCase
 import com.example.weather.viewmodel.WeatherViewModel
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.SupervisorJob
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 @RequiresApi(Build.VERSION_CODES.S)
 val module = module {
+    val scope = CoroutineScope(SupervisorJob())
     single<FusedLocationProviderClient> {
         LocationServices.getFusedLocationProviderClient(
             androidContext()
         )
     }
     single {
-        Room.databaseBuilder(
-            androidContext(),
-            WeatherDataBase::class.java,
-            "WeatherDataBase"
-        ).fallbackToDestructiveMigration().build()
+        WeatherDataBase.getDatabase(androidContext(), scope)
     }
     single<DbRepo> { DbRepoImpl(get()) }
     single<SearchRepo> { SearchRepoImpl(get()) }

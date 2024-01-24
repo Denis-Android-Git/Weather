@@ -25,4 +25,8 @@ class DbRepoImpl(
             weatherDataBase.weatherDao().getWeatherById(id)
         }
     }
+
+    override suspend fun deleteOldData(timeStampOfThirtyDays: Long) {
+        weatherDataBase.weatherDao().deleteOlderData(timeStampOfThirtyDays)
+    }
 }

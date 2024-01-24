@@ -15,4 +15,8 @@ interface WeatherDao {
 
     @Query("select * from WeatherFromDb where id = :id")
     suspend fun getWeatherById(id: Int): WeatherFromDb
+
+    @Query("DELETE from WeatherFromDb where timeStamp<=:timeStampOfThirtyDays")
+    suspend fun deleteOlderData(timeStampOfThirtyDays: Long)
+
 }
