@@ -43,21 +43,8 @@
       <entry key="checkWeatherInfoDisplayed() (2)">
         <State />
       </entry>
-      <entry key="useAppContext()">
-        <State>
-          <runningDeviceTargetSelectedWithDropDown>
-            <Target>
-              <type value="RUNNING_DEVICE_TARGET" />
-              <deviceKey>
-                <Key>
-                  <type value="VIRTUAL_DEVICE_PATH" />
-                  <value value="$USER_HOME$/.android/avd/Pixel_4_API_33.avd" />
-                </Key>
-              </deviceKey>
-            </Target>
-          </runningDeviceTargetSelectedWithDropDown>
-          <timeTargetWasSelectedWithDropDown value="2024-01-22T10:32:54.777125Z" />
-        </State>
+      <entry key="recyclerIsDisplayed()">
+        <State />
       </entry>
     </value>
   </component>
