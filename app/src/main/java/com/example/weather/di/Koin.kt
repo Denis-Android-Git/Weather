@@ -26,22 +26,19 @@ import com.example.weather.domain.useCase.GetWeatherUseCase
 import com.example.weather.viewmodel.WeatherViewModel
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.SupervisorJob
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 @RequiresApi(Build.VERSION_CODES.S)
 val module = module {
-    val scope = CoroutineScope(SupervisorJob())
     single<FusedLocationProviderClient> {
         LocationServices.getFusedLocationProviderClient(
             androidContext()
         )
     }
     single {
-        WeatherDataBase.getDatabase(androidContext(), scope)
+        WeatherDataBase.getDatabase(androidContext())
     }
     single<DbRepo> { DbRepoImpl(get()) }
     single<SearchRepo> { SearchRepoImpl(get()) }
@@ -61,6 +58,6 @@ val module = module {
 
     viewModel { SearchViewModel(get(), get()) }
     viewModel { WeatherViewModel(get(), get()) }
-    viewModel { GeoWeatherVM(get(), get(), get()) }
+    viewModel { GeoWeatherVM(get(), get(), get(), get()) }
     viewModel { CitiesViewModel(get()) }
 }

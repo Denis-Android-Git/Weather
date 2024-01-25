@@ -6,5 +6,5 @@ interface DbRepo {
     suspend fun upsertWeather(weatherFromDb: WeatherFromDb)
     suspend fun getWeatherList(): List<WeatherFromDb>
     suspend fun searchWeatherInDb(id: Int): WeatherFromDb?
-    suspend fun deleteOldData(timeStampOfThirtyDays: Long)
+    suspend fun deleteItem(item: WeatherFromDb)
 }

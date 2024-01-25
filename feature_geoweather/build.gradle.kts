@@ -51,6 +51,7 @@ dependencies {
 
     implementation(project(":Api"))
     implementation(project(":delegates"))
+    implementation(project(":database"))
     androidTestImplementation(project(":app"))
 
     //Koin

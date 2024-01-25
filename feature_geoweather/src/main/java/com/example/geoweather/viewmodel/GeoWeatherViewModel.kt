@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.database.domain.usecase.DbUseCase
 import com.example.geoweather.data.PermissionEvent
 import com.example.geoweather.data.States
 import com.example.geoweather.data.ViewState
@@ -19,7 +20,8 @@ import kotlinx.coroutines.launch
 class GeoWeatherVM(
     private val getLocationUseCase: GetLocationUseCase,
     private val getGeoWeatherUseCase: GetGeoWeatherUseCase,
-    private val getForeCastUseCase: GetForeCastUseCase
+    private val getForeCastUseCase: GetForeCastUseCase,
+    private val dbUseCase: DbUseCase
 ) : ViewModel() {
 
     private val _viewState = MutableLiveData<ViewState>(ViewState.RevokedPermissions)
@@ -33,6 +35,17 @@ class GeoWeatherVM(
 
     private val _foreCast = MutableLiveData<Weather?>(null)
     val foreCast: LiveData<Weather?> = _foreCast
+
+    init {
+        viewModelScope.launch {
+            val oldList = dbUseCase.executeList().filter {
+                it.timeStamp <= System.currentTimeMillis() - 30L * 24L * 60L * 60L * 1000L
+            }
+            oldList.forEach {
+                dbUseCase.executeDelete(it)
+            }
+        }
+    }
 
     fun getWeather(lat: String, long: String) {
         _state.value = States.Loading
