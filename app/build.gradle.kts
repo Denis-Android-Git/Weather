@@ -91,4 +91,7 @@ dependencies {
     androidTestImplementation(libs.androidx.runner)
     androidTestImplementation(libs.androidx.core.v140)
     debugImplementation(libs.androidx.fragment.testing)
+
+    //Leak canary
+    debugImplementation(libs.leakcanary.android)
 }

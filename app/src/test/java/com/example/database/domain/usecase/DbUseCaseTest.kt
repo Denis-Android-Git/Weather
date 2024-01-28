@@ -147,4 +147,8 @@ class FakeWeatherDataBase : DbRepo {
             it.id == id
         }
     }
+
+    override suspend fun deleteItem(item: WeatherFromDb) {
+        TODO("Not yet implemented")
+    }
 }
