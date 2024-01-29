@@ -52,8 +52,8 @@ dependencies {
     //Koin
     implementation(libs.koin.android)
     implementation(libs.koin.core)
+    implementation(project(":api"))
 
-    implementation(project(":Api"))
     implementation(project(":database"))
     implementation(project(":delegates"))
 

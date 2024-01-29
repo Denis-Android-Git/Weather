@@ -45,8 +45,8 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(project(":api"))
 
-    implementation(project(":Api"))
     implementation(project(":database"))
 
     //Koin
