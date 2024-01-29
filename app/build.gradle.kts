@@ -20,11 +20,13 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
     compileOptions {
@@ -45,7 +47,7 @@ dependencies {
     implementation(project(":feature_cities"))
     implementation(project(":feature_weather"))
     implementation(project(":feature_geoweather"))
-    implementation(project(":Api"))
+    implementation(project(":api"))
     implementation(project(":database"))
 
 

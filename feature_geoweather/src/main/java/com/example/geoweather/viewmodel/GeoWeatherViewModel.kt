@@ -10,7 +10,6 @@ import com.example.database.domain.usecase.DbUseCase
 import com.example.geoweather.data.PermissionEvent
 import com.example.geoweather.data.States
 import com.example.geoweather.data.ViewState
-import com.example.geoweather.domain.models.Weather
 import com.example.geoweather.domain.usecases.GetForeCastUseCase
 import com.example.geoweather.domain.usecases.GetGeoWeatherUseCase
 import com.example.geoweather.domain.usecases.GetLocationUseCase
@@ -27,14 +26,8 @@ class GeoWeatherVM(
     private val _viewState = MutableLiveData<ViewState>(ViewState.RevokedPermissions)
     val viewState: LiveData<ViewState> = _viewState
 
-    private val _weather = MutableLiveData<Weather?>(null)
-    val weather: LiveData<Weather?> = _weather
-
     private val _state = MutableLiveData<States>(States.Loading)
     val state: LiveData<States> = _state
-
-    private val _foreCast = MutableLiveData<Weather?>(null)
-    val foreCast: LiveData<Weather?> = _foreCast
 
     init {
         viewModelScope.launch {
@@ -52,23 +45,12 @@ class GeoWeatherVM(
         viewModelScope.launch {
             try {
                 val location = "$lat,$long"
-                _weather.value = getGeoWeatherUseCase.execute(location)
-                _state.value = States.Success
+                _state.value = States.Success(
+                    getGeoWeatherUseCase.execute(location),
+                    getForeCastUseCase.execute(location)
+                )
             } catch (e: Exception) {
-                _state.value = States.Error
-            }
-        }
-    }
-
-    fun getForeCast(lat: String, long: String) {
-        _state.value = States.Loading
-        viewModelScope.launch {
-            try {
-                val location = "$lat,$long"
-                _foreCast.value = getForeCastUseCase.execute(location)
-                _state.value = States.Success
-            } catch (e: Exception) {
-                _state.value = States.Error
+                _state.value = States.Error(e.message)
             }
         }
     }

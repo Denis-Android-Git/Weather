@@ -1,5 +1,6 @@
 package com.example.geoweather.data
 
+import com.example.geoweather.domain.models.Weather
 import com.google.android.gms.maps.model.LatLng
 
 sealed interface ViewState {
@@ -13,7 +14,13 @@ sealed interface PermissionEvent {
 }
 
 sealed class States {
-    data object Success : States()
+    data class Success(
+        val weather: Weather?,
+        val foreCast: Weather?
+    ) : States()
+
     data object Loading : States()
-    data object Error : States()
+    data class Error(
+        val error: String?
+    ) : States()
 }

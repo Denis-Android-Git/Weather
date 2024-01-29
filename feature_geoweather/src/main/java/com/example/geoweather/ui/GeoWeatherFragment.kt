@@ -74,34 +74,35 @@ class GeoWeatherFragment : Fragment() {
                         val latitude = state.location.latitude.toString()
                         val longitude = state.location.longitude.toString()
                         viewModel.getWeather(latitude, longitude)
-                        viewModel.getForeCast(latitude, longitude)
                     }
                 }
             }
         }
-        viewModel.weather.observe(viewLifecycleOwner) {
-            if (it != null) {
-                binding.city.text = it.location.name
-                binding.country.text = it.location.country
-                binding.temp.text = it.current.temp_c.toString()
-                binding.feelsLike.text = "Feels like ${it.current.feelslike_c.toString()}"
-                binding.wind.text = "Wind ${it.current.wind_kph.toString()} km/h"
-                binding.condition.text = it.current.condition.text
-                val icon = it.current.condition.icon.replace("//", "https://")
-                binding.image.load(icon)
-            }
-        }
-        viewModel.foreCast.observe(viewLifecycleOwner) {
-            adapter.submitList(it?.forecast?.forecastday)
-        }
         viewModel.state.observe(viewLifecycleOwner) {
             when (it) {
                 States.Loading -> binding.progress.visibility = View.VISIBLE
-                States.Success -> binding.progress.visibility = View.GONE
-                States.Error -> {
+
+                is States.Error -> {
                     binding.progress.visibility = View.GONE
                     binding.permissions.visibility = View.VISIBLE
-                    binding.permissions.text = "No Internet"
+                    binding.permissions.text = it.error
+                }
+
+                is States.Success -> {
+                    binding.progress.visibility = View.GONE
+                    if (it.weather != null && it.foreCast != null) {
+                        adapter.submitList(it.foreCast.forecast?.forecastday)
+
+                        binding.city.text = it.weather.location.name
+                        binding.country.text = it.weather.location.country
+                        binding.temp.text = it.weather.current.temp_c.toString()
+                        binding.feelsLike.text =
+                            "Feels like ${it.weather.current.feelslike_c}"
+                        binding.wind.text = "Wind ${it.weather.current.wind_kph} km/h"
+                        binding.condition.text = it.weather.current.condition.text
+                        val icon = it.weather.current.condition.icon.replace("//", "https://")
+                        binding.image.load(icon)
+                    }
                 }
             }
         }
